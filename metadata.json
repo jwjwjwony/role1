@@ -1,0 +1,6 @@
+{
+  "name": "매일매일 성장기록",
+  "description": "초등학교 교사용 학생 칭찬 포인트 및 성장 정원 관리 웹앱",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
