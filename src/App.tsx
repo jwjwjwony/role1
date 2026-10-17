@@ -15,6 +15,7 @@ import {
   resetToSampleData,
   clearAllData,
 } from './utils/storage';
+import { sendRecordToGoogleSheet } from './utils/googleSheets';
 import { TopBar, ActiveTab } from './components/TopBar';
 import { ClassHome } from './components/ClassHome';
 import { PraiseModal } from './components/PraiseModal';
@@ -76,6 +77,18 @@ export default function App() {
         studentName: record.studentName,
         points: record.points,
         reason: record.reason,
+      });
+    }
+
+    // Google Sheets Auto Sync
+    if (settings.googleSheetUrl && (settings.autoSyncToSheet ?? true)) {
+      const student = students.find((s) => s.id === record.studentId);
+      sendRecordToGoogleSheet(
+        settings.googleSheetUrl,
+        record,
+        student?.studentNumber
+      ).catch((err) => {
+        console.error('Google Sheet auto-sync error:', err);
       });
     }
   };

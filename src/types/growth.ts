@@ -63,6 +63,8 @@ export interface ClassSettings {
   teacherName: string;
   schoolName: string;
   badgeThresholds: Record<BadgeId, number>; // default 3
+  googleSheetUrl?: string; // Google Apps Script Web App URL
+  autoSyncToSheet?: boolean; // 새 칭찬 등록 시 자동 시트 전송 여부
 }
 
 export interface StudentGrowthSummary {
